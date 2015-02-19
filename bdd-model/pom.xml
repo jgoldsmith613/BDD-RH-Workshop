@@ -5,6 +5,7 @@
 		<groupId>org.rh.bdd</groupId>
 		<artifactId>bdd-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+        <relativePath>../bdd-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>bdd-model</artifactId>
 

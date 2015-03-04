@@ -10,6 +10,7 @@
 		<module>bdd-parent</module>
 		<module>bdd-model</module>
 		<module>bdd-java-services</module>
+		<module>bdd-war</module>
 	</modules>
 
 </project>

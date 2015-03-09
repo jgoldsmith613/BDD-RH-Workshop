@@ -1,6 +1,6 @@
 package com.bdd.service;
 
-import java.util.Set;
+import java.util.Collection;
 
 import com.bdd.model.Room;
 
@@ -10,6 +10,6 @@ public interface RoomRegistrationService {
 
 	public Room getRoom( String roomName );
 
-	public Set<String> getAllRoomNames();
+	public Collection<Room> getAllRooms();
 
 }

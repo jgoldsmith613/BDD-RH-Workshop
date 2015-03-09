@@ -69,7 +69,7 @@ Feature: Room Cancelations
       | Message                                                             |
       | No reservation exists to cancel for room one at the specified time. |
 
-  @wip
+  
   Scenario: Cancel a reservation - and Someone else books it
     Given the following rooms:
       | Name | Capacity | Tags |

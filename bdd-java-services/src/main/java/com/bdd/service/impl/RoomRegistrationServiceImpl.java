@@ -1,8 +1,8 @@
 package com.bdd.service.impl;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import com.bdd.model.Room;
 import com.bdd.service.RoomRegistrationService;
@@ -38,8 +38,8 @@ public class RoomRegistrationServiceImpl implements RoomRegistrationService {
 		roomMap = new HashMap<String, Room>();
 	}
 
-	public Set<String> getAllRoomNames() {
-		return roomMap.keySet();
+	public Collection<Room> getAllRooms() {
+		return roomMap.values();
 	}
 
 }

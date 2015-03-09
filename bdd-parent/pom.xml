@@ -15,8 +15,8 @@
 		<junit.version>4.12</junit.version>
 		<spring.version>4.1.4.RELEASE</spring.version>
 		<resteasy.version>3.0.10.Final</resteasy.version>
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.6</maven.compiler.source>
 
 	</properties>
 
@@ -30,6 +30,16 @@
 			<dependency>
 				<groupId>org.rh.bdd</groupId>
 				<artifactId>bdd-java-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.rh.bdd</groupId>
+				<artifactId>bdd-test-harness</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.rh.bdd</groupId>
+				<artifactId>bdd-war</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -93,11 +103,11 @@
 
 			<dependency>
 				<groupId>org.jboss.resteasy</groupId>
-				<artifactId>resteasy-jackson-provider</artifactId>
+				<artifactId>resteasy-jackson2-provider</artifactId>
 				<version>${resteasy.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-	
+
 </project>

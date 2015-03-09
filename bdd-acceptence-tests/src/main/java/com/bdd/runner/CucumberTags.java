@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features", monochrome = true, glue = "com/bdd/steps/", strict = true)
-public class CucumberTest {
+@CucumberOptions(features = "classpath:features", monochrome = true, glue = "com/bdd/steps/", strict = true, tags = { "@wip" })
+public class CucumberTags {
 
 }

@@ -3,6 +3,7 @@ Feature: Room Reservation
   # As a user
   # I need to be able to schedule a room
   # In order to reserve it for my meeting
+  @wip
   Scenario: Book single open room
     Given the following rooms:
       | Name | Capacity | Tags |

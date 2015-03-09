@@ -15,8 +15,6 @@ import com.bdd.model.Reservation;
 import com.bdd.model.Room;
 import com.bdd.service.RoomBookingService;
 import com.bdd.service.RoomRegistrationService;
-import com.bdd.service.impl.RoomBookingServiceImpl;
-import com.bdd.service.impl.RoomRegistrationServiceImpl;
 import com.bdd.utils.DateUtils;
 
 import cucumber.api.DataTable;
@@ -37,8 +35,6 @@ public class RoomSteps {
 
 	@Before
 	public void clear() {
-		( (RoomBookingServiceImpl) roomBookingService ).clear();
-		( (RoomRegistrationServiceImpl) roomRegistrationService ).clear();
 		exceptionMessages = new ArrayList<String>();
 	}
 
@@ -127,9 +123,8 @@ public class RoomSteps {
 
 	private int getTotalReservationCount() {
 		int count = 0;
-		for ( String roomName : roomRegistrationService.getAllRoomNames() ) {
-			Collection<Reservation> reservations = roomBookingService
-					.getReservations( roomRegistrationService.getRoom( roomName ) );
+		for ( Room room : roomRegistrationService.getAllRooms() ) {
+			Collection<Reservation> reservations = roomBookingService.getReservations( room );
 			count += reservations == null ? 0 : reservations.size();
 		}
 

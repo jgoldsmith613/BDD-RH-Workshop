@@ -29,7 +29,7 @@ public class RoomBookingServiceClient implements RoomBookingService {
 		reservationDTO.setEnd( interval.getEnd().toDate() );
 
 		Client client = ClientBuilder.newClient();
-		WebTarget create = client.target( String.format( ROOT_URL, room.getName() ) );
+		WebTarget create = client.target( String.format( ROOT_URL + "/reservation", room.getName() ) );
 		Entity<ReservationDTO> entity = Entity.json( reservationDTO );
 		Response post = create.request().header( "Content-Type", MediaType.APPLICATION_JSON ).post( entity );
 
@@ -40,6 +40,8 @@ public class RoomBookingServiceClient implements RoomBookingService {
 					"Room %s is booked for part or all of the period you attempted to book for.", room.getName() ) );
 		}
 		System.out.println( post.getStatus() );
+		System.out.println( post.getHeaders() );
+		System.out.println( post );
 		System.out.println( post.readEntity( String.class ) );
 		Assert.fail();
 		return null;
@@ -84,7 +86,7 @@ public class RoomBookingServiceClient implements RoomBookingService {
 	@SuppressWarnings("unchecked")
 	public Collection<Reservation> getReservations( Room room ) {
 		Client client = ClientBuilder.newClient();
-		WebTarget create = client.target( String.format( ROOT_URL, room.getName() ) );
+		WebTarget create = client.target( String.format( ROOT_URL + "/reservation", room.getName() ) );
 		Response get = create.request().get();
 
 		if ( get.getStatus() == 200 ) {

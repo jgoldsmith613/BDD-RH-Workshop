@@ -14,11 +14,20 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.bdd.dto.ReservationDTO;
 import com.bdd.model.Room;
+import com.bdd.service.RoomBookingService;
+import com.bdd.service.RoomRegistrationService;
 
 @Path("/room")
 public class RoomBookingController {
+
+	@Autowired
+	private RoomRegistrationService roomRegistrationService;
+	@Autowired
+	private RoomBookingService roomBookingService;
 
 	@POST
 	public Response registerRoom( Room room ) {

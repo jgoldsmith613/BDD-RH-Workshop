@@ -15,37 +15,37 @@ public class RoomRegistrationServiceClient implements RoomRegistrationService {
 
 	private static final String ROOT_URL = "http://localhost:8080/api/room";
 
-	public boolean registerRoom( Room room ) {
-		if ( room == null ) {
+	public boolean registerRoom(Room room) {
+		if (room == null) {
 			return false;
 		}
 		String name = room.getName();
-		if ( name == null ) {
+		if (name == null) {
 			return false;
 		}
 
-		Room exists = getRoom( name );
+		Room exists = getRoom(name);
 
-		if ( exists != null ) {
+		if (exists != null) {
 			return false;
 		}
 
 		Client client = ClientBuilder.newClient();
-		WebTarget create = client.target( ROOT_URL );
-		Entity<Room> entity = Entity.json( room );
-		Response post = create.request().post( entity );
+		WebTarget create = client.target(ROOT_URL);
+		Entity<Room> entity = Entity.json(room);
+		Response post = create.request().post(entity);
 
 		return post.getStatus() == 200;
 
 	}
 
-	public Room getRoom( String roomName ) {
+	public Room getRoom(String roomName) {
 
 		Client client = ClientBuilder.newClient();
 
-		WebTarget target = client.target( ROOT_URL + "/" + roomName );
+		WebTarget target = client.target(ROOT_URL + "/" + roomName);
 		Response response = target.request().get();
-		Room room = response.readEntity( Room.class );
+		Room room = response.readEntity(Room.class);
 
 		response.close();
 
@@ -56,9 +56,9 @@ public class RoomRegistrationServiceClient implements RoomRegistrationService {
 	public Collection<Room> getAllRooms() {
 		Client client = ClientBuilder.newClient();
 
-		WebTarget target = client.target( ROOT_URL );
+		WebTarget target = client.target(ROOT_URL);
 		Response response = target.request().get();
-		Collection<Room> rooms = response.readEntity( Collection.class );
+		Collection<Room> rooms = response.readEntity(Collection.class);
 		response.close();
 
 		return rooms;

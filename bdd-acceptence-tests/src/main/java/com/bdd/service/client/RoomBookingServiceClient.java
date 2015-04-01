@@ -6,6 +6,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.joda.time.Interval;
@@ -28,10 +29,10 @@ public class RoomBookingServiceClient implements RoomBookingService {
 		reservationDTO.setEnd(interval.getEnd().toDate());
 
 		Client client = ClientBuilder.newClient();
-		WebTarget create = client.target(String.format(ROOT_URL, room.getName()) + "/reservation");
+
+		WebTarget create = client.target(String.format(ROOT_URL + "/reservation", room.getName()));
 		Entity<ReservationDTO> entity = Entity.json(reservationDTO);
-		System.out.println(entity);
-		Response post = create.request().post(entity);
+		Response post = create.request().header("Content-Type", MediaType.APPLICATION_JSON).post(entity);
 
 		if (post.getStatus() == 200) {
 			return new Reservation(room, interval, user);
@@ -40,6 +41,8 @@ public class RoomBookingServiceClient implements RoomBookingService {
 					"Room %s is booked for part or all of the period you attempted to book for.", room.getName()));
 		}
 		System.out.println(post.getStatus());
+		System.out.println(post.getHeaders());
+		System.out.println(post);
 		System.out.println(post.readEntity(String.class));
 		Assert.fail();
 		return null;
@@ -85,7 +88,8 @@ public class RoomBookingServiceClient implements RoomBookingService {
 	@SuppressWarnings("unchecked")
 	public Collection<Reservation> getReservations(Room room) {
 		Client client = ClientBuilder.newClient();
-		WebTarget create = client.target(String.format(ROOT_URL, room.getName()) + "/reservation");
+
+		WebTarget create = client.target(String.format(ROOT_URL + "/reservation", room.getName()));
 		Response get = create.request().get();
 
 		if (get.getStatus() == 200) {

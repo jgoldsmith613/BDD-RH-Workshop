@@ -9,6 +9,7 @@
 	<modules>
 		<module>bdd-parent</module>
 		<module>bdd-model</module>
+		<module>bdd-dto</module>
 		<module>bdd-test-harness</module>
 		<module>bdd-java-services</module>
 		<module>bdd-war</module>

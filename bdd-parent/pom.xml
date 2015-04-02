@@ -39,7 +39,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.rh.bdd</groupId>
-				<artifactId>bdd-war</artifactId>
+				<artifactId>bdd-dto</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

@@ -7,24 +7,15 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../bdd-parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>bdd-acceptence-tests</artifactId>
+	<artifactId>bdd-dto</artifactId>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-client</artifactId>
+			<artifactId>resteasy-jackson2-provider</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.rh.bdd</groupId>
-			<artifactId>bdd-model</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.rh.bdd</groupId>
-			<artifactId>bdd-dto</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.rh.bdd</groupId>
-			<artifactId>bdd-test-harness</artifactId>
-		</dependency>
+
 	</dependencies>
+
+
 </project>

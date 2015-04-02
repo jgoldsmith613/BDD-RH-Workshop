@@ -16,6 +16,10 @@
 			<groupId>org.rh.bdd</groupId>
 			<artifactId>bdd-java-services</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.rh.bdd</groupId>
+			<artifactId>bdd-dto</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>

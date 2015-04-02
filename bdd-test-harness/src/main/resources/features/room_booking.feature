@@ -3,7 +3,7 @@ Feature: Room Reservation
   # As a user
   # I need to be able to schedule a room
   # In order to reserve it for my meeting
-  @wip
+  
   Scenario: Book single open room
     Given the following rooms:
       | Name | Capacity | Tags |
@@ -16,6 +16,7 @@ Feature: Room Reservation
     Then I expect the following schedule to be confirmed:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
+
 
   Scenario: Overlap in reservation on the left side
     Given the following rooms:
@@ -33,6 +34,7 @@ Feature: Room Reservation
     And I expect the following error messages:
       | Message                                                                     |
       | Room one is booked for part or all of the period you attempted to book for. |
+
 
   Scenario: Overlap in reservation on the right side
     Given the following rooms:

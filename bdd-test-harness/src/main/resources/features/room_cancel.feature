@@ -3,6 +3,7 @@ Feature: Room Cancelations
   # As a user
   # I need to be able to cancel a reserved room
   # In order for someone else to be able to sign up
+  
   Scenario: Cancel a reservation
     Given the following rooms:
       | Name | Capacity | Tags |
@@ -51,7 +52,7 @@ Feature: Room Cancelations
     And I expect the following error messages:
       | Message                                                             |
       | No reservation exists to cancel for room two at the specified time. |
-
+	
   Scenario: Cancel a non existent reservation - wrong user
     Given the following rooms:
       | Name | Capacity | Tags |

@@ -5,13 +5,18 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-	
-	<import resource="classpath:applicationContext.xml"/>
 
 	<import resource="classpath:applicationContext.xml" />
-	
+
+	<import resource="classpath:applicationContext.xml" />
+
 	<bean id="roomController" class="com.bdd.controller.RoomBookingController" />
-	
+
+	<!-- Something like this should never be in production code. Look at java 
+		docs on this class for reason. -->
+	<bean id="clearingController" class="com.bdd.controller.ClearingController" />
+
+
 
 
 

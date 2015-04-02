@@ -6,6 +6,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
 import com.bdd.model.Room;
@@ -45,7 +46,10 @@ public class RoomRegistrationServiceClient implements RoomRegistrationService {
 
 		WebTarget target = client.target(ROOT_URL + "/" + roomName);
 		Response response = target.request().get();
-		Room room = response.readEntity(Room.class);
+		Room room = null;
+		if (response.getStatus() == 200) {
+			room = response.readEntity(Room.class);
+		}
 
 		response.close();
 
@@ -58,7 +62,9 @@ public class RoomRegistrationServiceClient implements RoomRegistrationService {
 
 		WebTarget target = client.target(ROOT_URL);
 		Response response = target.request().get();
-		Collection<Room> rooms = response.readEntity(Collection.class);
+		GenericType<Collection<Room>> generic = new GenericType<Collection<Room>>() {
+		};
+		Collection<Room> rooms = response.readEntity(generic);
 		response.close();
 
 		return rooms;

@@ -1,11 +1,13 @@
 package com.bdd.service.client;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -40,10 +42,7 @@ public class RoomBookingServiceClient implements RoomBookingService {
 			throw new RoomBookingException(String.format(
 					"Room %s is booked for part or all of the period you attempted to book for.", room.getName()));
 		}
-		System.out.println(post.getStatus());
-		System.out.println(post.getHeaders());
-		System.out.println(post);
-		System.out.println(post.readEntity(String.class));
+
 		Assert.fail();
 		return null;
 	}
@@ -61,11 +60,8 @@ public class RoomBookingServiceClient implements RoomBookingService {
 		Response put = create.request().put(entity);
 
 		if (put.getStatus() >= 400 && put.getStatus() < 500) {
-			Object entityResponse = put.getEntity();
-			if (entityResponse instanceof RoomBookingException) {
-				throw (RoomBookingException) entityResponse;
-			}
-			Assert.fail();
+			throw put.readEntity(RoomBookingException.class);
+
 		}
 
 	}
@@ -93,10 +89,26 @@ public class RoomBookingServiceClient implements RoomBookingService {
 		Response get = create.request().get();
 
 		if (get.getStatus() == 200) {
-			return get.readEntity(Collection.class);
+			GenericType<Collection<ReservationDTO>> generic = new GenericType<Collection<ReservationDTO>>() {
+			};
+			Collection<ReservationDTO> reservations = get.readEntity(generic);
+			return transformReservationDTO(reservations, room);
 		}
+		System.out.println(get.readEntity(String.class));
 
 		Assert.fail();
 		return null;
+	}
+
+	private Collection<Reservation> transformReservationDTO(Collection<ReservationDTO> reservationDTOs, Room room) {
+		Collection<Reservation> reservations = new ArrayList<Reservation>();
+
+		for (ReservationDTO dto : reservationDTOs) {
+			Reservation reservation = new Reservation(room, new Interval(dto.getStart().getTime(), dto.getEnd()
+					.getTime()), dto.getUser());
+			reservations.add(reservation);
+		}
+
+		return reservations;
 	}
 }

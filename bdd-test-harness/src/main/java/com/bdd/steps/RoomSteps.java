@@ -93,12 +93,6 @@ public class RoomSteps {
 			Room room = roomRegistrationService.getRoom(row.get("Room Name"));
 			Interval interval = makeInterval(row);
 			Collection<Reservation> reservations = roomBookingService.getReservations(room);
-			System.out.println(reservations.size());
-			System.out.println(reservations.iterator().next());
-			System.out.println(reservations.iterator().next().getInterval().getStartMillis() + " : "
-					+ interval.getStartMillis());
-			System.out.println(reservations.iterator().next().getInterval().getEndMillis() + " : "
-					+ interval.getEndMillis());
 
 			Assert.assertTrue(roomBookingService.getReservations(room).contains(
 					new Reservation(room, interval, row.get("Room Occupant"))));

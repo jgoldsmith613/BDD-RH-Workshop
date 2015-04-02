@@ -1,5 +1,6 @@
 package com.bdd.controller;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.ws.rs.Consumes;
@@ -100,6 +101,23 @@ public class RoomBookingController {
 	public Response getReservations(@PathParam("roomName") String roomName) {
 		Collection<Reservation> reservations = roomBookingService.getReservations(roomRegistrationService
 				.getRoom(roomName));
-		return Response.status(200).entity(reservations).build();
+		if (reservations == null) {
+			return Response.status(200).entity(new ArrayList<ReservationDTO>()).build();
+		}
+		return Response.status(200).entity(transformReservations(reservations)).build();
+	}
+
+	private Collection<ReservationDTO> transformReservations(Collection<Reservation> reservations) {
+		Collection<ReservationDTO> reservationDTOs = new ArrayList<ReservationDTO>();
+		for (Reservation reservation : reservations) {
+			ReservationDTO dto = new ReservationDTO();
+			dto.setUser(reservation.getUser());
+			dto.setStart(reservation.getInterval().getStart().toDate());
+			dto.setEnd(reservation.getInterval().getEnd().toDate());
+			reservationDTOs.add(dto);
+		}
+
+		return reservationDTOs;
+
 	}
 }

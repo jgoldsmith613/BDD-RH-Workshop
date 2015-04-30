@@ -14,7 +14,7 @@ import com.bdd.service.RoomRegistrationService;
 
 public class RoomRegistrationServiceClient implements RoomRegistrationService {
 
-	private static final String ROOT_URL = "http://localhost:8080/api/room";
+	private static final String ROOT_URL = "http://localhost:15151/api/room";
 
 	public boolean registerRoom(Room room) {
 		if (room == null) {

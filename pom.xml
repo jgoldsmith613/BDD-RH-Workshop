@@ -44,6 +44,12 @@
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.rh.bdd</groupId>
+				<artifactId>bdd-booking-service-war</artifactId>
+				<type>war</type>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>${joda.version}</version>

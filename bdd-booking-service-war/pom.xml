@@ -3,23 +3,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.rh.bdd</groupId>
-		<artifactId>bdd-parent</artifactId>
+		<artifactId>bdd-rh-workshop</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../bdd-parent/pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>bdd-war</artifactId>
+	<artifactId>bdd-booking-service-war</artifactId>
 	<packaging>war</packaging>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>org.rh.bdd</groupId>
-			<artifactId>bdd-java-services</artifactId>
+			<artifactId>bdd-booking-services</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.rh.bdd</groupId>
-			<artifactId>bdd-dto</artifactId>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>

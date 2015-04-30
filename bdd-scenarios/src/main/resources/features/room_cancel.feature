@@ -11,7 +11,7 @@ Feature: Room Cancelations
     And the following schedules:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
-    When I try to book the cancel the following reservation:
+    When I try to cancel the following reservation:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
     Then I expect the following schedule to be confirmed:
@@ -25,7 +25,7 @@ Feature: Room Cancelations
     And the following schedules:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
-    When I try to book the cancel the following reservation:
+    When I try to cancel the following reservation:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:00 |
     Then I expect the following schedule to be confirmed:
@@ -43,7 +43,7 @@ Feature: Room Cancelations
     And the following schedules:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
-    When I try to book the cancel the following reservation:
+    When I try to cancel the following reservation:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | two       | 02/01/2015 10:30 | 02/01/2015 11:30 |
     Then I expect the following schedule to be confirmed:
@@ -60,7 +60,7 @@ Feature: Room Cancelations
     And the following schedules:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
-    When I try to book the cancel the following reservation:
+    When I try to cancel the following reservation:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Joe           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
     Then I expect the following schedule to be confirmed:
@@ -78,7 +78,7 @@ Feature: Room Cancelations
     And the following schedules:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
-    When I try to book the cancel the following reservation:
+    When I try to cancel the following reservation:
       | Room Occupant | Room Name | Start Time       | End Time         |
       | Bob           | one       | 02/01/2015 10:30 | 02/01/2015 11:30 |
     And I try to book the following rooms:

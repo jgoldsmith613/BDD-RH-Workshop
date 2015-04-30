@@ -72,8 +72,8 @@ public class RoomSteps {
 		}
 	}
 
-	@When("^I try to book the cancel the following reservation:$")
-	public void i_try_to_book_the_cancel_the_following_reservation(DataTable examplesTable) throws Throwable {
+	@When("^I try to cancel the following reservation:$")
+	public void i_try_to_cancel_the_following_reservation(DataTable examplesTable) throws Throwable {
 		for (Map<String, String> row : examplesTable.asMaps(String.class, String.class)) {
 			Room room = roomRegistrationService.getRoom(row.get("Room Name"));
 			Interval interval = makeInterval(row);

@@ -22,7 +22,7 @@ import com.bdd.service.RoomBookingService;
 
 public class RoomBookingServiceClient implements RoomBookingService {
 
-	private static final String ROOT_URL = "http://localhost:16050/api/room/%s";
+	private static final String ROOT_URL = "http://127.6.9.1:16050/api/room/%s";
 
 	public Reservation bookRoom(String user, Room room, Interval interval) throws RoomBookingException {
 		ReservationDTO reservationDTO = new ReservationDTO();

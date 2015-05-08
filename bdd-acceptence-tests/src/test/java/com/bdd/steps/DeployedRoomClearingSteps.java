@@ -11,7 +11,7 @@ import cucumber.api.java.Before;
 
 public class DeployedRoomClearingSteps {
 
-	private static final String CLEAR_URL = "http://localhost:16050/api/clear";
+	private static final String CLEAR_URL = "http://127.6.9.1:16050/api/clear";
 
 	@Before
 	public void clear() {

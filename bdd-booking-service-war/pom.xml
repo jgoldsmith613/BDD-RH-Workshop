@@ -16,7 +16,7 @@
 			<groupId>org.rh.bdd</groupId>
 			<artifactId>bdd-booking-services</artifactId>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -64,7 +64,31 @@
 					<warName>ROOT</warName>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.5.3</version>
+				<executions>
+					<execution>
+						<id>create-archive</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<goal>install</goal>
+					<descriptors>
+						<descriptor>src/assembly/assm_tar.xml</descriptor>
+					</descriptors>
+					<tarLongFileMode>posix</tarLongFileMode>
+				</configuration>
+			</plugin>
 		</plugins>
+
+
+
+
 	</build>
 
 

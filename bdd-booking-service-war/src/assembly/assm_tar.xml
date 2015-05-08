@@ -10,7 +10,7 @@
 	<fileSets>
 		<fileSet>
 			<directory>target</directory>
-			<outputDirectory>/</outputDirectory>
+			<outputDirectory>/./dependencies/jbossews/webapps</outputDirectory>
 			<includes>
 				<include>ROOT.war</include>
 			</includes>

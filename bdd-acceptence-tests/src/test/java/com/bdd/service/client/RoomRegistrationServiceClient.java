@@ -14,7 +14,7 @@ import com.bdd.service.RoomRegistrationService;
 
 public class RoomRegistrationServiceClient implements RoomRegistrationService {
 
-	private static final String ROOT_URL = "http://127.6.9.1:16050/api/room";
+	private static final String ROOT_URL = "http://bookingservice-bddworkshop.rhcloud.com/api/room";
 
 	public boolean registerRoom(Room room) {
 		if (room == null) {

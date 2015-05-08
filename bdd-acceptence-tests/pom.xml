@@ -107,12 +107,12 @@
 							<!-- -Dcom.sun.management.jmxremote.port=6000 -Dcom.sun.management.jmxremote.authenticate=false 
 								-Dcom.sun.management.jmxremote.ssl=false -->
 							<cargo.jvmargs>
-								-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=15152
+								<!-- -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=15152-->
 								-Xnoagent
 								-Xmx1024m
 								-XX:MaxPermSize=256m
 							</cargo.jvmargs>
-							<cargo.servlet.port>15151</cargo.servlet.port>
+							<cargo.servlet.port>16050</cargo.servlet.port>
 						</properties>
 						<configfiles>
 
